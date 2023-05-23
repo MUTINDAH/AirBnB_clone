@@ -5,6 +5,7 @@ from uuid import uuid4
 
 import json
 
+
 class FileStorage:
     """File storage class for all other classes."""
 
