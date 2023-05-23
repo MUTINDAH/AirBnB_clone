@@ -1,9 +1,12 @@
-from uuid import uuid4
+#!/usr/bin/python3
+
 from datetime import datetime
+from uuid import uuid4
+
 import json
 
 class FileStorage:
-    """File storage class for storing and retrieving models."""
+    """File storage class for all other classes."""
 
     __file_path: str = "file.json"
     __objects: dict = {}
