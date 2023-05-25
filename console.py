@@ -1,17 +1,18 @@
 #!/usr/bin/python3
 """
-A module that implements the HBNBCommand class
+A module that implements the console class
 """
+
 import cmd
 import models
 
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
-    class_names = ["BaseModel"]
+    class_names = ["BaseModel", "User"]
 
     def do_create(self, arg):
-        """Creates a new instance of BaseModel"""
+        """Creates a new instance of a class"""
         args = arg.split()
         if not args:
             print("** class name missing **")
@@ -104,17 +105,17 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 3:
             print("** attribute name missing **")
             return
-        attribute_name = args[2]
+        attr_name = args[2]
         if len(args) < 4:
             print("** value missing **")
             return
-        value = args[3]
+        attr_value = args[3]
         instance = objects[key]
-        setattr(instance, attribute_name, value)
+        setattr(instance, attr_name, attr_value)
         instance.save()
 
     def emptyline(self):
-        """Do nothing when an empty line is entered"""
+        """Ignore empty lines"""
         pass
 
     def do_quit(self, arg):
@@ -125,18 +126,6 @@ class HBNBCommand(cmd.Cmd):
         """EOF command to exit the program"""
         print()
         return True
-
-    def help_quit(self):
-        """Display help message for quit command"""
-        print("Quit the program")
-
-    def help_EOF(self):
-        """Display help message for EOF command"""
-        print("Exit the program")
-
-    def help_help(self):
-        """Display help message for help command"""
-        print("Display available commands")
 
 
 if __name__ == '__main__':
