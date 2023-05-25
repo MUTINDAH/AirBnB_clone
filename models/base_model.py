@@ -16,8 +16,9 @@ class BaseModel:
         self.updated_at = datetime.now()
 
     def to_dict(self):
-        data = self.__dict__.copy()
-        data['__class__'] = self.__class__.__name__
-        data['created_at'] = self.created_at.isoformat()
-        data['updated_at'] = self.updated_at.isoformat()
-        return data
+        """Returns a dictionary representation of the model."""
+        dict_ = self.__dict__.copy()
+        dict_["__class__"] = self.__class__.__name__
+        dict_["created_at"] = dict_["created_at"].isoformat()
+        dict_["updated_at"] = dict_["updated_at"].isoformat()
+        return dict_
