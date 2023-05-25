@@ -21,3 +21,13 @@ class TestBaseModel(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class BaseModel(BaseModel):
+    """Doc
+    """
+
+    def save(self):
+        """Doc
+        """
+        pass
